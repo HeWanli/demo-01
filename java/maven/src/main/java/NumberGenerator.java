@@ -5,18 +5,14 @@ import java.util.Random;
 public class NumberGenerator {
     private Random random;
 
-    public NumberGenerator(){
-
-    }
-
     public NumberGenerator(Random random) {
-
+        this.random = random;
     }
 
     public String generate() {
         StringBuilder digits = new StringBuilder();
         while (digits.length() < 4){
-            String num = String.valueOf(new Random().nextInt(10));
+            String num = String.valueOf(random.nextInt(10));
             if(digits.indexOf(num) == -1){
                 digits.append(num);
             }

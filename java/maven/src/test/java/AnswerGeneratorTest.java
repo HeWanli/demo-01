@@ -14,7 +14,7 @@ import static org.mockito.Mockito.mock;
 public class AnswerGeneratorTest {
     @Test
     public void should_be_a_digit(){
-        String digit = new NumberGenerator().generate();
+        String digit = new NumberGenerator(new Random()).generate();
         try {
             Integer.parseInt(digit);
         }catch (NumberFormatException e){
@@ -24,13 +24,13 @@ public class AnswerGeneratorTest {
 
     @Test
     public void should_be_a_4_digit(){
-        String digit = new NumberGenerator().generate();
+        String digit = new NumberGenerator(new Random()).generate();
         assertThat(digit.length()).isEqualTo(4);
     }
 
     @Test
     public void should_generate_no_duplicate_digit(){
-        String digit = new NumberGenerator().generate();
+        String digit = new NumberGenerator(new Random()).generate();
         for (int i = 0; i < digit.length(); i++) {
             char ch = digit.charAt(i);
             assertThat(digit.indexOf(i)).isEqualTo(digit.lastIndexOf(ch));
