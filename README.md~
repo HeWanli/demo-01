@@ -77,3 +77,22 @@ Guess Number Game
 	当6次都没有猜中的时候，打印"Game Over"并退出
 	当猜中的时候，不要打印4A0B,而是打印"Congratulations!"并退出
 
+问题分解：
+	1：游戏开始第一行打印"welcome"
+	2：第二行打印"Please input your number(6): "
+	3：对比用户输入，并打印结果
+	设：用户剩余的次数为x;
+		1：结果不正确
+			1：x != 0
+				第一行打印"xAxB"
+				第二行打印"Please input your number(x): "
+			2：x = 0
+				游戏结束，打印"Game over!"
+		2：结果正确
+			1：x = 6
+			2：1 < x < 6
+			3：x = 0
+				游戏结束，打印"Congratulations!"
+
+
+
