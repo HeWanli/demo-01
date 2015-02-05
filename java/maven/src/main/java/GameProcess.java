@@ -18,13 +18,20 @@ public class GameProcess {
     }
 
     public void start() throws IOException {
+        int chance = 6;
         out.println("Welcome!");
-        out.println("Please input your answer(6):");
-        String input = numberGenerator.generate();
-        String answer = reader.readLine();
-        String result = compareNumber.compare(input, answer);
-        if(!"4A0B".equals(result)){
+        while (chance > 0){
+            out.println("Please input your answer("+chance+"):");
+            String input = numberGenerator.generate();
+            String answer = reader.readLine();
+            String result = compareNumber.compare(input, answer);
+            if("4A0B".equals(result)){
+                out.println("Congratulation!");
+                return;
+            }
             out.println(result);
+            chance--;
         }
+        out.println("Game Over!");
     }
 }
